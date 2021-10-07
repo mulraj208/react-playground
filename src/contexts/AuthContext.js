@@ -21,7 +21,7 @@ function useProvideAuth() {
     const [user, setUser] = useState(null);
     const history = useHistory();
     const location = useLocation();
-    const redirectRoutes = ['/login', '/home'];
+    const redirectRoutes = ['/login', '/home', '/'];
 
     const signIn = cb => {
         return fakeAuth.signIn(() => {
@@ -50,6 +50,7 @@ function useProvideAuth() {
 
     useEffect(() => {
         redirectToHomeIfAuthenticated();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return {

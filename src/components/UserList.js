@@ -32,7 +32,6 @@ function UserList() {
     }
 
     const {observe, unobserve} = useInView({
-        threshold: 0.25,
         onEnter: ({observe, unobserve}) => {
             callUserApi({observe, unobserve});
         }

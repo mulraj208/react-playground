@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Link, Redirect, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import {ProvideAuth, useAuth} from "./contexts/AuthContext";
@@ -60,6 +60,9 @@ function App() {
                             <Login/>
                         </RedirectRouteIfAuthenticated>
                         <PrivateRoute exact path="/home">
+                            <Home/>
+                        </PrivateRoute>
+                        <PrivateRoute exact path="/">
                             <Home/>
                         </PrivateRoute>
                         <Route path="*">
