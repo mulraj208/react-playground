@@ -5,7 +5,6 @@ import {API_URL} from "../constants/global";
 import UserItem from "./UserItem/index";
 import SkeletonLoader from "./SkeletonLoader/index";
 
-const NO_OF_USERS = 10;
 let page = 0;
 
 function UserList() {
@@ -15,10 +14,11 @@ function UserList() {
 
     function callUserApi({observe, unobserve}) {
         unobserve();
+        const results = page === 0 ? 25 : 15;
         page += 1;
         setLoading(true);
 
-        axios.get(`${API_URL}?page=${page}&results=${NO_OF_USERS}`)
+        axios.get(`${API_URL}?page=${page}&results=${results}`)
             .then(function ({data}) {
                 setUsers([...users, ...data.results]);
                 setLoading(false);
